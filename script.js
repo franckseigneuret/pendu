@@ -10,6 +10,7 @@ let countValue = parseInt(compteur.textContent)
 
 let word = ''
 let wordArray = []
+let foundLetters = []
 
 propositionSend.addEventListener('click', () => {
   propositionBlock.className = 'hidden'
@@ -23,10 +24,10 @@ checkletter.addEventListener('click', () => {
   propositionBlock.className = 'hidden'
   findBlock.className = ''
   let positionsLetter = parseWord(letter)
-  console.log(wordArray.indexOf(letter))
+  // console.log(wordArray.indexOf(letter))
+  // console.log(positionsLetter)
 
-  console.log(positionsLetter)
-  if(positionsLetter.countLetterFind > 0) {
+  if (positionsLetter.countLetterFind > 0) {
     show.textContent = positionsLetter.halfWord
   } else {
     diminue()
@@ -35,21 +36,23 @@ checkletter.addEventListener('click', () => {
 })
 
 parseWord = (letter) => {
+  console.log('letter recherchée = ', letter)
   let positionsLetter = []
-  console.log('letter', letter)
   let halfWord = ''
   let countLetterFind = 0
 
   wordArray.forEach((element, k) => {
     if (element === letter) {
+      foundLetters.push(letter)
       countLetterFind++
       positionsLetter.push(k)
-      halfWord += ' ' + letter
+      halfWord += letter
     } else {
-      halfWord += ' _'
+      halfWord += ''
     }
   })
-  console.log(positionsLetter)
+  // console.log('positionsLetter = ', positionsLetter)
+  // console.log('foundLetters = ', foundLetters)
   return { halfWord, countLetterFind }
 }
 
