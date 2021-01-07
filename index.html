@@ -9,17 +9,19 @@
 <body>
   <div id="proposition-block">
     <h4>joueur 1</h4>
-    <input type="text" id="find-this-word" />
+    <input type="text" id="find-this-word" value="azazerzatyzauiozap" />
     <input type="button" id="proposition-send" value="saisi du mot à deviner" />
   </div>
 
   
   <div id="find-block" class="hidden">
     <h4>joueur 2</h4>
-    <input type="text" id="letter" />
-    <input type="button" id="envoi" value="vérifier cette lettre" />
+    <input type="text" id="suggestion-letter" />
+    <input type="button" id="check-letter" value="vérifier cette lettre" />
     <p>Chances : <span id="count">10</span></p>
   </div>
+
+  <div id="show"></div>
 
   <script src="script.js"></script>
 </body>
