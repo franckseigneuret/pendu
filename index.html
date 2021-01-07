@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Jeu du pendu</title>
+</head>
+<body>
+  <div id="proposition-block">
+    <h4>joueur 1</h4>
+    <input type="text" id="find-this-word" />
+    <input type="button" id="proposition-send" value="saisi du mot à deviner" />
+  </div>
+
+  
+  <div id="find-block" class="hidden">
+    <h4>joueur 2</h4>
+    <input type="text" id="letter" />
+    <input type="button" id="envoi" value="vérifier cette lettre" />
+    <p>Chances : <span id="count">10</span></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
