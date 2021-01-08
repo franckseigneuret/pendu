@@ -10,25 +10,28 @@ let countValue = parseInt(compteur.textContent)
 
 let word = ''
 let wordArray = []
-let foundLetters = []
+let partialWord = ''
 
 propositionSend.addEventListener('click', () => {
   propositionBlock.className = 'hidden'
   findBlock.className = ''
   word = document.getElementById('find-this-word').value
   wordArray = word.split('')
+
+  for(let i = 0; i <wordArray.length; i++){
+    partialWord += '_'
+  }
+
+  show.textContent = partialWord
 })
 
 checkletter.addEventListener('click', () => {
-  const letter = suggestionLetter.value
   propositionBlock.className = 'hidden'
   findBlock.className = ''
-  let positionsLetter = parseWord(letter)
-  // console.log(wordArray.indexOf(letter))
-  // console.log(positionsLetter)
+  const parseWordObj = parseWord(suggestionLetter.value)
 
-  if (positionsLetter.countLetterFind > 0) {
-    show.textContent = positionsLetter.halfWord
+  if (parseWordObj.countLetterFind > 0) {
+    show.textContent = parseWordObj.partialWord
   } else {
     diminue()
   }
@@ -37,23 +40,17 @@ checkletter.addEventListener('click', () => {
 
 parseWord = (letter) => {
   console.log('letter recherchée = ', letter)
-  let positionsLetter = []
-  let halfWord = ''
   let countLetterFind = 0
 
   wordArray.forEach((element, k) => {
     if (element === letter) {
-      foundLetters.push(letter)
+      console.log(element)
       countLetterFind++
-      positionsLetter.push(k)
-      halfWord += letter
-    } else {
-      halfWord += ''
-    }
+      
+      partialWord = partialWord.substring(0, k) + letter + partialWord.substring(k+1)
+    } 
   })
-  // console.log('positionsLetter = ', positionsLetter)
-  // console.log('foundLetters = ', foundLetters)
-  return { halfWord, countLetterFind }
+  return { partialWord, countLetterFind }
 }
 
 const diminue = () => {

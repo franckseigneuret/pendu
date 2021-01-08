@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>Jeu du pendu</title>
+  <style>
+    #show { letter-spacing: 2px; }
+    input[type=text] {
+      outline: 0;
+      border: grey solid 3px;
+    }
+    input:focus {
+      border: rgb(112, 237, 112) solid 3px;
+    }
+    input:invalid {
+      border: red solid 3px;
+    }
+  </style>
 </head>
 <body>
   <div id="proposition-block">
@@ -16,13 +29,13 @@
   
   <div id="find-block" class="hidden">
     <h4>joueur 2</h4>
-    <input type="text" id="suggestion-letter" />
+    <input type="text" id="suggestion-letter" pattern="[a-z]{1}" />
     <input type="button" id="check-letter" value="vérifier cette lettre" />
     <p>Chances : <span id="count">10</span></p>
   </div>
 
   <div id="show"></div>
 
-  <script src="script.js"></script>
+  <script src="pendu-script.js"></script>
 </body>
 </html>
