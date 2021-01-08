@@ -17,20 +17,22 @@
     input:invalid {
       border: red solid 3px;
     }
+    .alert { color: red; margin-left: 20px;}
   </style>
 </head>
 <body>
   <div id="proposition-block">
     <h4>joueur 1</h4>
-    <input type="text" id="find-this-word" value="azazerzatyzauiozap" />
+    <input type="text" id="find-this-word" value="az" />
     <input type="button" id="proposition-send" value="saisi du mot à deviner" />
   </div>
-
+  
   
   <div id="find-block" class="hidden">
     <h4>joueur 2</h4>
     <input type="text" id="suggestion-letter" pattern="[a-z]{1}" />
     <input type="button" id="check-letter" value="vérifier cette lettre" />
+    <p class="alert"></p>
     <p>Chances : <span id="count">10</span></p>
   </div>
 

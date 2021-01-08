@@ -8,3 +8,8 @@ body {
 .hidden {
   display: none;
 }
+
+.victory {
+  font-size: 2em;
+  color: rgb(210, 79, 79);
+}
